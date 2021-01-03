@@ -15,7 +15,6 @@ appxml.use(bodyParser.json());
 appxml.use(bodyParser.urlencoded({ extended: true }));
 
 
-
 appxml.post('/', (req, res, next) => {
 
     console.log(arr);
@@ -30,15 +29,15 @@ appxml.post('/', (req, res, next) => {
     }
     if (found) {
         res.send({
-            message:"email alredy access",
-            status:400
+            message: "email alredy access",
+            status: 400
         });
 
     }
     else {
         res.send({
-            message:"Signed up succesfully",
-             status:200
+            message: "Signed up succesfully",
+            status: 200
         });
         arr.push(req.body);
         console.log(req.body);
@@ -48,47 +47,38 @@ appxml.post('/', (req, res, next) => {
 
 appxml.post('/login', (req, res, next) => {
 
-    // console.log(arr);
-
     var flag = false;
-    for (let i = 0; i<arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (arr[i].email === req.body.email) {
-          
+
             flag = i;
             break;
-       }}
-       if(flag===false){
-    
+        }
+    }
+    if (flag === false) {
+
         res.send({
             message:"do not match email",
-            status:400
-   })}else if(arr[flag].password===req.body.password){ 
-        
+            status: 400
+        })
+    } else if (arr[flag].password === req.body.password) {
+
         res.send({
-            message:"Sin in Success Full",
-            status:200,
-            })
+            message: "Sin in Success Full",
+            status: 200,
         
-}else{
+        })
+        
+    } else {
         res.send({
-            message:"do not match PAssword",
-            status:400
-    })
-  }
+            message: "do not match PAssword",
+            status: 400,
+         })
+    }
 })
-// ================>//===================>
-
-
-
-
-
-
-
-
-
-
+// app.use("/", express.static(path.resolve(path.join(__dirname,'public'))))
 
 // ==============>
 appxml.listen(3001, () => {
-    console.log("chal gya hai server");
+    console.log("chal gya hai server")
 })
