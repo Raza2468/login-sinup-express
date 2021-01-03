@@ -1,5 +1,3 @@
-// const { json } = require("body-parser");
-
 $(document).ready(function(){
     $("#myBtn").click(function(){
       $("#myModal").modal();
@@ -10,35 +8,38 @@ $(document).ready(function(){
 //  ========>
 
 const sub = () => {
-    let namei = document.getElementById("name").value
-    let emaili = document.getElementById("email").value
-    let passwordi = document.getElementById("password").value
+let namei = document.getElementById("name").value
+let emaili = document.getElementById("email").value
+let passwordi = document.getElementById("password").value
 
-    var user = {
+var user = {
         name: namei,
         email: emaili,
         password: passwordi,
     }
 
 
-    let request = new XMLHttpRequest();
-    let url = "http://localhost:3001/";
+let request = new XMLHttpRequest();
+let url = "http://localhost:3001/";
     request.open("POST", url);
 
     request.setRequestHeader('Content-Type', 'application/json')
     request.send(JSON.stringify(user))
 
     request.onreadystatechange = () => {
-        let jsonRes=JSON.parse(request.responseText)
+let jsonRes=JSON.parse(request.responseText)
         // console.log(request.responseText);
-if (request.readyState===4) {
-// alert(jsonRes)    
-if (request.readyState===200) {
-    alert(jsonRes.message)
-} else {
-    alert(jsonRes.message)
-}
-} 
+    if (request.readyState===4) {
+       // alert(jsonRes)    
+    if (request.readyState===200) {
+    
+        alert(jsonRes.message)
+
+    } else {
+
+        alert(jsonRes.message)
+
+    }} 
 }
 
     return false;
@@ -49,8 +50,6 @@ if (request.readyState===200) {
 function sin() {
 var emailabc = document.getElementById("emailabc").value
 var pass= document.getElementById("pass").value
-// console.log(usrname);
-// console.log(pswd);
 
 obj={
     email:emailabc,
@@ -69,15 +68,38 @@ request.onreadystatechange = () => {
     if (request.readyState===4) {
         // alert(JSONres.message)
      if(request.readyState===200){
+       
         alert(JSONres.message)
+    
     }else{
+    
         alert(JSONres.message)
+    
     }}
 }
-
 return false;
-
-
-
-
 }
+
+// ==============>//====================>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

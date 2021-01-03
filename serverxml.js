@@ -45,13 +45,6 @@ appxml.post('/', (req, res, next) => {
     }
 })
 // =========================>
-// =========================>
-// =========================>
-// =========================>
-// var obj = [{
-//     // pswd: pswd
-// }]
-
 
 appxml.post('/login', (req, res, next) => {
 
@@ -60,7 +53,6 @@ appxml.post('/login', (req, res, next) => {
     var flag = false;
     for (let i = 0; i<arr.length; i++) {
         if (arr[i].email === req.body.email) {
-        // if (arr[i].password===req.body.password) {
           
             flag = i;
             break;
@@ -72,40 +64,19 @@ appxml.post('/login', (req, res, next) => {
             status:400
    })}else if(arr[flag].password===req.body.password){ 
         
-    res.send({
-       message:"Sin in Success Full",
-       status:200
-})}else{
-    res.send({
-        message:"do not match PAssword",
-        status:400
-    })
-}
-
-   
-//     else{
-
-//         res.send({
-//             message:"Sin in Success Full",
-//             status:200
-// })
-    
-    // }else if(arr[flag].password===req.body.password){
+        res.send({
+            message:"Sin in Success Full",
+            status:200,
+            })
         
-    //     // else if (arr[i].email === req.body.email){
-    //     res.send("login susse full")
-     
-    //     }else {
-     
-    //         res.send("do not match pswd");
-    // }
+}else{
+        res.send({
+            message:"do not match PAssword",
+            status:400
+    })
+  }
 })
-
- 
-        // console.log("confrom======>");
-        // res.send("confrom")
-    
-    //    res.send(a)
+// ================>//===================>
 
 
 
@@ -117,14 +88,7 @@ appxml.post('/login', (req, res, next) => {
 
 
 
-
-
-
-
-// appxml.get('/cheak',(req,res,next)=>{
-// res.send("f")
-// })
-// =====
+// ==============>
 appxml.listen(3001, () => {
     console.log("chal gya hai server");
 })
