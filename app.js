@@ -1,3 +1,5 @@
+// const { json } = require("body-parser");
+
 $(document).ready(function(){
     $("#myBtn").click(function(){
       $("#myModal").modal();
@@ -27,8 +29,17 @@ const sub = () => {
     request.send(JSON.stringify(user))
 
     request.onreadystatechange = () => {
-        console.log(request.responseText);
-    }
+        let jsonRes=JSON.parse(request.responseText)
+        // console.log(request.responseText);
+if (request.readyState===4) {
+// alert(jsonRes)    
+if (request.readyState===200) {
+    alert(jsonRes.message)
+} else {
+    alert(jsonRes.message)
+}
+} 
+}
 
     return false;
 }
@@ -36,14 +47,14 @@ const sub = () => {
 // ============>
 
 function sin() {
-var usrname = document.getElementById("usrname").value
-var pswd = document.getElementById("pass").value
+var emailabc = document.getElementById("emailabc").value
+var pass= document.getElementById("pass").value
 // console.log(usrname);
 // console.log(pswd);
 
-usersin={
-    usrname:usrname,
-    pswd:pswd,
+obj={
+    email:emailabc,
+    password:pass,
 }
 
 
@@ -51,9 +62,17 @@ let request = new XMLHttpRequest();
 let url = "http://localhost:3001/login";
 request.open("POST", url);
 request.setRequestHeader('Content-Type', 'application/json')
-request.send(JSON.stringify(usersin))
+request.send(JSON.stringify(obj))
 request.onreadystatechange = () => {
+    let JSONres=JSON.parse(request.responseText)
     console.log(request.responseText);
+    if (request.readyState===4) {
+        // alert(JSONres.message)
+     if(request.readyState===200){
+        alert(JSONres.message)
+    }else{
+        alert(JSONres.message)
+    }}
 }
 
 return false;
