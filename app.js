@@ -27,7 +27,7 @@ const sub = () => {
 
     request.onreadystatechange = () => {
         let jsonRes = JSON.parse(request.responseText)
-        // console.log(request.responseText);
+        console.log(request.responseText);
         if (request.readyState === 4) {
             // alert(jsonRes)    
             if (request.readyState === 200) {
